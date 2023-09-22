@@ -3,12 +3,16 @@ CP1404/CP5632 - Practical
 Broken (now fixed) program to determine score status
 """
 
+import random
+
 
 def main():
     """Takes a score and determines a grade."""
     score = get_valid_score()
     grade = determine_grade(score)
-    print(f"Your grade is: {grade}")
+    random_number = random.randint(1, 100)
+    random_grade = determine_grade(random_number)
+    print(f"Your grade is: {grade}\nYour random grade is: {random_grade}")
 
 
 def get_valid_score():
