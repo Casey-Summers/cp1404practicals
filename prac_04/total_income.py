@@ -3,7 +3,7 @@ CP1404/CP5632 Practical
 Starter code for cumulative total income program
 """
 
-incomes = []  # move this outside of main so that it doesn't need to be called again by print report
+incomes = []  # I moved this outside of main so that it doesn't need to be called again by print report
 
 
 def main():
