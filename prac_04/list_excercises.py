@@ -4,10 +4,17 @@ Name: Casey Summers
 """
 
 numbers = []
+usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface', 'BaseStdIn',
+             'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer', 'bob']
 
 
 def main():
-    """Program to gather 5 numbers and print information about them."""
+    """Program to get valid user and gather 5 numbers then printing information about them."""
+    username = input("Username: ")
+    while username not in usernames:
+        print("Access denied")
+        username = input("Username: ")
+    print("Access granted")
     for i in range(5):
         number = int(input("Number: "))
         numbers.append(number)
