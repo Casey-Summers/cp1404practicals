@@ -7,8 +7,9 @@ FILENAME = "subject_data.txt"
 
 
 def main():
+    """Shows example output then collects information into nested list that is later formatted."""
     data = get_data()
-    print(data)  # display list input for function below
+    print(data)  # display list output for function below
     display_subject_details(data)
 
 
@@ -31,8 +32,9 @@ def get_data():
 
 
 def display_subject_details(data):
+    """Displays the nested list information in an f-string format."""
     counter = 0
-    for datapoint in data:
+    for person in data:
         print(f"{data[counter][0]} is taught by {data[counter][1]} and has {data[counter][2]} students")
         counter += 1
 
