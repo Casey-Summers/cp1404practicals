@@ -10,7 +10,7 @@ usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'B
 
 def main():
     """Program to get valid user and gather 5 numbers then printing information about them."""
-    username = input("Username: ")
+    username = input("Username: ")  # Was told to have both program in same file, figured this was a good way.
     while username not in usernames:
         print("Access denied")
         username = input("Username: ")
