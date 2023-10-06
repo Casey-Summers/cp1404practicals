@@ -12,7 +12,7 @@ NUM_PER_QUICK_PICK = 6
 
 
 def main():
-    """Program to generate a lines of 6 random numbers equal to user request."""
+    """Program to generate lines of 6 random numbers equal to user request."""
     number_of_picks = int(input("How many quick picks? "))
     for picks in range(number_of_picks):
         line_of_quick_picks = generate_quick_pick_line()
