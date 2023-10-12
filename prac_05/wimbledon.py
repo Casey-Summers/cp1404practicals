@@ -22,8 +22,7 @@ def main():
             print(f"{players}: {wins}")
         winning_countries = find_winning_countries(year_data)
         print(f"\nThese {len(winning_countries)} countries have won Wimbledon:")
-        winning_countries = ", ".join(winning_countries)
-        print(winning_countries)
+        print(", ".join(winning_countries))
 
 
 def find_winners(year_data):
