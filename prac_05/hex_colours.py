@@ -1,6 +1,6 @@
 """
 CP1404 Practical
-Hex colours in CONSTANT dictionary
+Hex colours in CONSTANT dictionary NEW
 Name: Casey Summers
 """
 
