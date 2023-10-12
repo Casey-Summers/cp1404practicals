@@ -5,10 +5,10 @@ Name: Casey Summers
 """
 
 TEN_COLOURS_TO_CODES = {"Absolute Zero": "#0048ba", "Acid Green": "#b0bf1a", "Alice Blue": "#f0f8ff",
-                        "Alizarin crimson": "#e32636", "Amaranth": "#e52b50", "Amber": "#ffbf00", "Amethyst": "#9966cc",
+                        "Alizarin Crimson": "#e32636", "Amaranth": "#e52b50", "Amber": "#ffbf00", "Amethyst": "#9966cc",
                         "Antique White0": "#faebd7", "Antique White1": "#ffefdb", "Antique White2": "#eedfcc"}
 
-colour_choice = input("What colour: ").title().replace(" ", "")
+colour_choice = input("What colour: ").title()
 while colour_choice != "":
     if colour_choice in TEN_COLOURS_TO_CODES:
         print(f"The colour code for {colour_choice} is: {TEN_COLOURS_TO_CODES[colour_choice]}")
