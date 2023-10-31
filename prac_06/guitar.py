@@ -8,6 +8,7 @@ CURRENT_YEAR = 2023
 
 
 class Guitar:
+    """Class to gather guitar name, year, and cost, as well as get_age and check if it is vintage."""
     def __init__(self, name="", year=0.0, cost=0.0):
         self.name = name
         self.year = year
