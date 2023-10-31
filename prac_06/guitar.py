@@ -17,9 +17,7 @@ class Guitar:
         return f"{self.name} ({self.year}) : ${self.cost:,}"
 
     def get_age(self):
-        age = CURRENT_YEAR - self.year
-        return age
+        return CURRENT_YEAR - self.year
 
     def is_vintage(self):
-        if self.year >= VINTAGE_THRESHOLD:
-            return True
+        return self.get_age() >= VINTAGE_THRESHOLD
