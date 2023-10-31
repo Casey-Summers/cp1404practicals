@@ -5,6 +5,7 @@ CP1404 Practical - Programming Languages class.
 
 
 class ProgrammingLanguage:
+    """Class to gather name, typing, reflection, and year of a programming language, and to check if it is dynamic."""
     def __init__(self, name="", typing="", reflection=False, year=0.0):
         self.name = name
         self.typing = typing
