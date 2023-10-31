@@ -9,6 +9,7 @@ from prac_06.guitar import Guitar
 
 
 def main():
+    """Program to test guitar class with expected outcome checker."""
     gibson = Guitar("Gibson L-5 CES", 1922, 16035.40)
     another_guitar = Guitar("Another Guitar", 2013, 800.00)
     print(f"{gibson}\n")  # Test f-string formatting
