@@ -2,7 +2,7 @@
 CP1404 Practical - Client code to use the guitar class.
 Name: Casey Summers
 Estimated time: 25m
-Actual time: 15m
+Actual time: 27m
 """
 
 from prac_06.guitar import Guitar
