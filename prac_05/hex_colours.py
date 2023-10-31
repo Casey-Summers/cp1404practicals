@@ -1,13 +1,12 @@
 """
 CP1404 Practical
-Hex colours in CONSTANT dictionary
+Hex colours in CONSTANT dictionary NEW
 Name: Casey Summers
 """
 
 TEN_COLOURS_TO_CODES = {"Absolute Zero": "#0048ba", "Acid Green": "#b0bf1a", "Alice Blue": "#f0f8ff",
-                        "Alizarin crimson": "#e32636", "Amaranth": "#e52b50", "Amber": "#ffbf00", "Amethyst": "#9966cc",
+                        "Alizarin Crimson": "#e32636", "Amaranth": "#e52b50", "Amber": "#ffbf00", "Amethyst": "#9966cc",
                         "Antique White0": "#faebd7", "Antique White1": "#ffefdb", "Antique White2": "#eedfcc"}
-# I have spaced colours that had two capitalised words put together for user consistency.
 
 colour_choice = input("What colour: ").title()
 while colour_choice != "":
