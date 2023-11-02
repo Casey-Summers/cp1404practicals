@@ -9,11 +9,36 @@ from project import Project
 import csv
 
 FILENAME = "projects.txt"
+MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project " \
+       "\n- (U)pdate project\n- (Q)uit\n"
 
 
 def main():
     projects = load_projects_from_csv(FILENAME)
-    print(projects)
+    choice = input(f"{MENU}>>> ").upper()
+    while choice != "Q":
+        if choice == "L":
+            print("")
+        elif choice == "S":
+            print("")
+        elif choice == "D":
+            # Uses the __lt__ class def to sort by priority (ascending)
+            projects.sort()
+            print("Incomplete projects:")
+            display_projects(projects, "<")
+            print("Complete projects:")
+            display_projects(projects, "==")
+        elif choice == "F":
+            print("")
+        elif choice == "A":
+            print("")
+        elif choice == "U":
+            print("")
+        else:
+            print("Invalid input")
+        choice = input(f"{MENU}>>> ").upper()
+    print(f"Thank you for using custom-built project management software.")
+    # save_projects_to_file(projects)
 
 
 def load_projects_from_csv(filename):
@@ -37,6 +62,14 @@ def save_projects_to_file(projects):
     with open(FILENAME, 'w') as out_file:
         for project in projects:
             out_file.write(f"{project.name},{project.year},{project.cost}\n")
+
+
+def display_projects(projects, determinant):
+    for project in projects:
+        completion_percent = int(project.completion_percentage)
+        # distinguishes between the two cases, either being "<" or "==" to 100% complete
+        if (determinant == "<" and completion_percent < 100) or (determinant == "==" and completion_percent == 100):
+            print(f"  {project}")
 
 
 if __name__ == '__main__':
