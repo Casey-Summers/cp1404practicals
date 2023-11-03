@@ -8,6 +8,7 @@ Actual time:
 from project import Project
 import csv
 import datetime
+from operator import itemgetter
 
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project " \
@@ -31,35 +32,38 @@ def main():
             file_name = input("Filename: ")
             save_projects_to_file(projects, file_name)
         elif choice == "D":
-            # Uses the __lt__ class def to sort by priority (ascending)
             projects.sort()
+            # Uses the __lt__ class def to sort by priority (ascending)
             print("Incomplete projects:")
             display_projects(projects, "<")
             print("Complete projects:")
             display_projects(projects, "==")
         elif choice == "F":
+            filtered_projects = []
             start_date_filter = input("Show projects that start after date (dd/mm/yy): ")
-            date = datetime.datetime.strptime(start_date_filter, "%d/%m/%Y").date()
-            projects.sort()
+            start_date_filter = datetime.datetime.strptime(start_date_filter, "%d/%m/%Y").date()
+
             for project in projects:
                 project_date = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
-                if project_date >= date:
-                    print(project)
+                if project_date >= start_date_filter:
+                    filtered_projects.append(project)
+
+            # Sorts and prints filtered dates
+            sorted_dates = sorted(filtered_projects)
+            for date in sorted_dates:
+                print(date)
         elif choice == "A":
             print("Let's add a new project")
             name = input("Name: ")
-            while name != "":  # When name is empty, is stops adding new songs
-                start_date = input("Start Date (dd/mm/yy): ")
-                priority = input("priority: ")
-                cost = int(input("Cost estimate: $"))
-                completion_percentage = int(input("Percent complete: "))
-                projects.append(Project(name, start_date, priority, cost, completion_percentage))
-                print(f"{name}, {start_date}, {priority}, {cost}, {completion_percentage} added.")
-                name = input(f"\nName: ")
+            start_date = input("Start Date (dd/mm/yy): ")
+            priority = input("priority: ")
+            cost = int(input("Cost estimate: $"))
+            completion_percentage = int(input("Percent complete: "))
+            projects.append(Project(name, start_date, priority, cost, completion_percentage))
         elif choice == "U":
             for i, project in enumerate(projects, 0):
                 print(f"{i} {project}")
-            project_choice = int(input("project choice: "))
+            project_choice = int(input("Project choice: "))
             print(projects[project_choice])
             new_completion = input("New Percentage: ")
             new_priority = input("New priority: ")
