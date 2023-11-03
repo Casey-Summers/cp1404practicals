@@ -2,13 +2,12 @@
 CP1404 - Project management program with several class, sorting, and saving functions.
 Name: Casey Summers
 Expected time: 90m
-Actual time:
+Actual time: 150m
 """
 
 from project import Project
 import csv
 import datetime
-from operator import itemgetter
 
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project " \
@@ -16,6 +15,7 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 
 
 def main():
+    """Program with menu functions to save, load, filter, display and add projects based on .csv."""
     choice = input(f"{MENU}>>> ").upper()
     projects = load_projects_from_csv(FILENAME)  # default load file encase user does not load a new one first
     while choice != "Q":
@@ -100,6 +100,7 @@ def save_projects_to_file(projects, file_name):
 
 
 def display_projects(projects, determinant):
+    """Displays the object based on its completion using __str__ dunder method."""
     for project in projects:
         completion_percent = int(project.completion_percentage)
         # distinguishes between the two cases, either being "<" or "==" to 100% complete
