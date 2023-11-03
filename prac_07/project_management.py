@@ -14,11 +14,18 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 
 
 def main():
-    projects = load_projects_from_csv(FILENAME)
     choice = input(f"{MENU}>>> ").upper()
+    projects = load_projects_from_csv(FILENAME)  # default load file encase user does not load a new one first
     while choice != "Q":
         if choice == "L":
-            print("")
+            file_name = input("Filename: ")
+            try:
+                projects = load_projects_from_csv(file_name)
+                # displays both incomplete and complete songs one after another
+                display_projects(projects, "<")
+                display_projects(projects, "==")
+            except FileNotFoundError:
+                print("That file does not exist.")
         elif choice == "S":
             print("")
         elif choice == "D":
