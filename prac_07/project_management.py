@@ -39,17 +39,25 @@ def main():
         elif choice == "F":
             print("")
         elif choice == "A":
+            print("Let's add a new project")
             name = input("Name: ")
-            while name != "":
-                start_date = input("Start Date: ")
+            while name != "":  # When name is empty, is stops adding new songs
+                start_date = input("Start Date (dd/mm/yy): ")
                 priority = input("priority: ")
-                cost = int(input("Cost: $"))
-                completion_percentage = int(input("Completion (%): "))
+                cost = int(input("Cost estimate: $"))
+                completion_percentage = int(input("Percent complete: "))
                 projects.append(Project(name, start_date, priority, cost, completion_percentage))
                 print(f"{name}, {start_date}, {priority}, {cost}, {completion_percentage} added.")
                 name = input(f"\nName: ")
         elif choice == "U":
-            print("")
+            for i, project in enumerate(projects, 0):
+                print(f"{i} {project}")
+            project_choice = int(input("project choice: "))
+            print(projects[project_choice])
+            new_completion = input("New Percentage: ")
+            new_priority = input("New priority: ")
+            projects[project_choice].completion_percentage = new_completion
+            projects[project_choice].priority = new_priority
         else:
             print("Invalid input")
         choice = input(f"{MENU}>>> ").upper()
