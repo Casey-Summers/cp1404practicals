@@ -7,6 +7,7 @@ Actual time:
 
 from project import Project
 import csv
+import datetime
 
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project " \
@@ -37,7 +38,13 @@ def main():
             print("Complete projects:")
             display_projects(projects, "==")
         elif choice == "F":
-            print("")
+            start_date_filter = input("Show projects that start after date (dd/mm/yy): ")
+            date = datetime.datetime.strptime(start_date_filter, "%d/%m/%Y").date()
+            projects.sort()
+            for project in projects:
+                project_date = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
+                if project_date >= date:
+                    print(project)
         elif choice == "A":
             print("Let's add a new project")
             name = input("Name: ")
@@ -62,7 +69,6 @@ def main():
             print("Invalid input")
         choice = input(f"{MENU}>>> ").upper()
     print(f"Thank you for using custom-built project management software.")
-    # save_projects_to_file(projects)
 
 
 def load_projects_from_csv(filename):
