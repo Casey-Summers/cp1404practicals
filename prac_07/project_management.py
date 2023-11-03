@@ -27,7 +27,8 @@ def main():
             except FileNotFoundError:
                 print("That file does not exist.")
         elif choice == "S":
-            print("")
+            file_name = input("Filename: ")
+            save_projects_to_file(projects, file_name)
         elif choice == "D":
             # Uses the __lt__ class def to sort by priority (ascending)
             projects.sort()
@@ -64,11 +65,12 @@ def load_projects_from_csv(filename):
         return projects
 
 
-def save_projects_to_file(projects):
+def save_projects_to_file(projects, file_name):
     """Save lists of class objects back into the file with the same format."""
-    with open(FILENAME, 'w') as out_file:
+    with open(file_name, 'w') as out_file:
         for project in projects:
-            out_file.write(f"{project.name},{project.year},{project.cost}\n")
+            out_file.write(f"{project.name},{project.start_date},{project.priority},{project.cost_estimate},"
+                           f"{project.completion_percentage}\n")
 
 
 def display_projects(projects, determinant):
