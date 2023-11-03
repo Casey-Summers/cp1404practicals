@@ -39,7 +39,15 @@ def main():
         elif choice == "F":
             print("")
         elif choice == "A":
-            print("")
+            name = input("Name: ")
+            while name != "":
+                start_date = input("Start Date: ")
+                priority = input("priority: ")
+                cost = int(input("Cost: $"))
+                completion_percentage = int(input("Completion (%): "))
+                projects.append(Project(name, start_date, priority, cost, completion_percentage))
+                print(f"{name}, {start_date}, {priority}, {cost}, {completion_percentage} added.")
+                name = input(f"\nName: ")
         elif choice == "U":
             print("")
         else:
