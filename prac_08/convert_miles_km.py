@@ -1,5 +1,5 @@
 """
-CP1404/CP5632 Practical
+CP1404 Practical
 Kivy GUI program to convert miles into kilometres
 Creator: Casey Summers (11/11/2023)
 Expected: 35m
