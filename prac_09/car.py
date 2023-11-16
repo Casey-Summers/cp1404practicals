@@ -1,5 +1,5 @@
 """
-CP1404/CP5632 Practical
+CP1404 Practical
 Car class
 """
 
@@ -19,7 +19,7 @@ class Car:
 
     def __str__(self):
         """Return a string representation of a Car object."""
-        return f"{self.name}, fuel={self.fuel}, odometer={self.odometer}"
+        return f"{self.name}, fuel={self.fuel}, odo={self.odometer}"
 
     def add_fuel(self, amount):
         """Add amount to the car's fuel."""
