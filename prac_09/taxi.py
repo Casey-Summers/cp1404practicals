@@ -21,7 +21,7 @@ class Taxi(Car):
     def get_fare(self):
         """Return the price for the taxi trip."""
         # rounds to the fist decimal place and converts to int
-        return int(round(self.price_per_km * self.current_fare_distance, 1))
+        return float(round(self.price_per_km * self.current_fare_distance, 1))
 
     def start_fare(self):
         """Begin a new fare."""

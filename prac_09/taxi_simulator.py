@@ -21,36 +21,40 @@ def main():
     while choice != 'q':
         if choice == 'c':
             print("Taxis available:")
-            for taxi_number, taxi in enumerate(taxis):
-                print(f"{taxi_number} - {taxi}")
+            display_taxis(taxis)
             taxi_choice = int(input("Choose taxi: "))
-            get_valid_taxi_choice(taxi_choice, taxi_number)
-            current_taxi = taxis[taxi_choice]
-            print(current_taxi)
+            if taxi_choice > len(taxis) - 1:
+                print("Invalid taxi choice")
+            else:
+                current_taxi = taxis[taxi_choice]
         elif choice == 'd':
             if current_taxi is None:
                 print("You need to choose a taxi before you can drive")
             else:
                 distance = int(input("Drive how far? "))
                 current_taxi.drive(distance)
-                fare = current_taxi.get_fare()
-                print(f"Your {current_taxi} trip cost you ${fare:.2f}")
+                try:
+                    if current_taxi.fanciness:
+                        fare = current_taxi.calculate_fare()  # fare for SilverServiceTaxi class
+                    else:
+                        fare = current_taxi.get_fare()  # fare for Taxi class
+                except AttributeError:
+                    print("Attribute Error.")
+                print(f"Your {current_taxi.name} trip cost you ${fare:.2f}")
                 total_fare += fare
         else:
             print("Invalid option")
-        print(f"Bill to date: ${total_fare}")
+        print(f"Bill to date: ${total_fare:.2f}")
         choice = input(f"{MENU}>>> ").lower()
-    print("Exiting. Thank you")
+    print(f"Total trip cost: ${total_fare:.2f}")
+    print("Taxis are now:")
+    display_taxis(taxis)
 
 
-def get_valid_taxi_choice(taxi_choice, taxi_number):
-    while taxi_choice > taxi_number:
-        return print("Invalid taxi choice")
+def display_taxis(taxis):
+    for taxi_number, taxi in enumerate(taxis):
+        print(f"{taxi_number} - {taxi}")
 
-
-# def get_valid_input(prompt):
-#     user_input = input(prompt)
-#     while user_input !=
 
 if __name__ == '__main__':
     main()
