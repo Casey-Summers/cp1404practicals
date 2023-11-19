@@ -11,7 +11,7 @@ from silver_service_taxi import SilverServiceTaxi
 def main():
     """Client program to test SilverServiceTaxi child class with fanciness attribute."""
 
-    # Display Taxi drive and calculate fare methods
+    # Display Taxi class 'drive' and 'calculate_fare' functions
     silver_taxi = SilverServiceTaxi("Hummer", 200, 2)
     silver_taxi.drive(18)  # Test drive value
     fare = silver_taxi.calculate_fare()

@@ -1,7 +1,7 @@
 """
 CP1404 Practical - unreliable car child class
 Expected: 25m
-Actual:
+Actual: 37m
 """
 
 from prac_09.car import Car

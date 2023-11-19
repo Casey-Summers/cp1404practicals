@@ -11,7 +11,7 @@ MENU = "q)uit, c)hoose, d)rive\n"
 
 
 def main():
-    """___"""
+    """Program to add Taxi two different types of Taxi objects and calculate fares using accordingly."""
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     current_taxi = None
     total_fare = 0
@@ -52,6 +52,7 @@ def main():
 
 
 def display_taxis(taxis):
+    """Display the text for taxi selection."""
     for taxi_number, taxi in enumerate(taxis):
         print(f"{taxi_number} - {taxi}")
 
