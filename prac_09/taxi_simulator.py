@@ -7,7 +7,7 @@ Actual:
 from prac_09.silver_service_taxi import SilverServiceTaxi
 from prac_09.taxi import Taxi
 
-MENU = "q)uit, c)hoose, d)rive\n"
+MENU = "q)uit, c)hoose taxi, d)rive\n"
 
 
 def main():
@@ -34,7 +34,7 @@ def main():
                 distance = int(input("Drive how far? "))
                 current_taxi.drive(distance)
                 try:
-                    if current_taxi.fanciness:
+                    if hasattr(current_taxi, 'fanciness'):
                         fare = current_taxi.calculate_fare()  # fare for SilverServiceTaxi class
                     else:
                         fare = current_taxi.get_fare()  # fare for Taxi class
