@@ -13,9 +13,12 @@ def main():
     search = input("Wikipedia title/phrase: ")
     while search != '':
         try:
-            wiki_page = wikipedia.page(search)
-        except wikipedia.exceptions.DisambiguationError as error:
-            print(f"DisambiguationError: {error.options}")
+            wiki_page = wikipedia.page(search, auto_suggest=False)
+        except wikipedia.exceptions.DisambiguationError as e:
+            print(f"DisambiguationError: {e.options}")
+            wiki_page = None
+        except wikipedia.exceptions.PageError as e:
+            print(f"PageError: {e}")
             wiki_page = None
 
         if wiki_page:
